@@ -19,22 +19,22 @@ const ProfileForm = () => {
     <form className='sw-full mb-10'>
       <div className='mb-4'>
         <FormItem
-          label='First Name'
+          label='Full Name'
           type='text'
-          name='firstName'
-          value={resumeData.profile.firstName}
+          name='fullName'
+          value={resumeData.profile.fullName}
           onChange={handleChange}
-          placeholder='First Name'
+          placeholder='Full Name'
         />
       </div>
       <div className='mb-4'>
         <FormItem
-          label='Last Name'
+          label='Job Title'
           type='text'
-          name='lastName'
-          value={resumeData.profile.lastName}
+          name='jobTitle'
+          value={resumeData.profile.jobTitle}
           onChange={handleChange}
-          placeholder='Last Name'
+          placeholder='Job title'
         />
       </div>
       <div className='mb-4'>

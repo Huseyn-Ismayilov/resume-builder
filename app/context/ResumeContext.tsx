@@ -6,11 +6,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 
 interface ProfileData {
-  firstName: string
-  lastName: string
+  fullName: string
   email: string
   phone: string
   address: string
+  jobTitle: string
 }
 
 interface EducationData {
@@ -38,11 +38,11 @@ const ResumeContext = createContext<ResumeContextType | undefined>(undefined)
 export const ResumeProvider: React.FC = ({ children }: any) => {
   const initialResumeData: ResumeData = {
     profile: {
-      firstName: '',
-      lastName: '',
+      fullName: '',
       email: '',
       phone: '',
-      address: ''
+      address: '',
+      jobTitle: ''
     },
     education: {
       schoolName: '',

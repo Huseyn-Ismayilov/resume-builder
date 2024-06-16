@@ -1,9 +1,14 @@
 'use client'
-import Template from "./template"
+import ProfessionalResume from "@/app/template/professionResume"
+
 const Resume = () => {
 
   return (
-    <Template />
+    <div className="grow overflow-y-auto">
+      <div className="w-full max-w-screen-lg mx-auto py-16">
+      <ProfessionalResume />
+      </div>
+    </div>
   )
 }
 
