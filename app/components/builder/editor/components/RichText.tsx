@@ -1,4 +1,3 @@
-// TextareaWithLabel.tsx
 import React from 'react'
 
 interface TextareaWithLabelProps {
@@ -7,6 +6,8 @@ interface TextareaWithLabelProps {
   value: string
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   placeholder: string
+  noResize?: string
+  minHeight?: string
 }
 
 const RichTextArea: React.FC<TextareaWithLabelProps> = ({
@@ -14,7 +15,9 @@ const RichTextArea: React.FC<TextareaWithLabelProps> = ({
   name,
   value,
   onChange,
-  placeholder
+  placeholder,
+  noResize,
+  minHeight
 }) => {
   return (
     <div className='mb-4'>
@@ -26,7 +29,7 @@ const RichTextArea: React.FC<TextareaWithLabelProps> = ({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className='w-full h-20 border border-black/20 focus:outline-black resize-none text-sm rounded-md font-semibold placeholder:font-normal placeholder:text-xs px-4 py-3'
+        className={`w-full h-20 border border-black/20 focus:outline-black text-sm rounded-md font-semibold placeholder:font-normal placeholder:text-xs px-4 py-3 ${noResize && 'resize-none'} ${minHeight}`}
       />
     </div>
   )

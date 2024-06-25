@@ -1,6 +1,7 @@
-import { Button } from '@nextui-org/button'
 import Image from 'next/image'
 import profilePic from '/public/avatar.jpeg'
+import PdfExportButton from '../../PDFexport/button'
+import { Button } from '@nextui-org/button'
 
 const Navbar = () => {
   return (
@@ -20,13 +21,7 @@ const Navbar = () => {
         >
           Download
         </Button>
-        <Button
-          color='primary'
-          variant='shadow'
-          className='font-medium rounded-md text-white'
-        >
-          Share
-        </Button>
+        <PdfExportButton />
       </div>
     </div>
   )

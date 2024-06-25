@@ -61,6 +61,7 @@ const ProfileForm = () => {
         <RichTextArea
           label='Address'
           name='address'
+          noResize='resize'
           value={resumeData.profile.address}
           onChange={handleChange}
           placeholder='Your Address'

@@ -33,7 +33,6 @@ const Tabs: React.FC<{ children: ReactNode }> = ({ children }) => {
                 <div>
                   {index === activeTab ? (
                     <svg
-                      // width='13'
                       className='size-3'
                       viewBox='0 0 28 4'
                       fill='none'
@@ -49,7 +48,6 @@ const Tabs: React.FC<{ children: ReactNode }> = ({ children }) => {
                     </svg>
                   ) : (
                     <svg
-                      // width='13'
                       className='size-3'
                       viewBox='0 0 28 28'
                       fill='none'

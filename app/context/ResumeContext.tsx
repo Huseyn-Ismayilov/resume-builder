@@ -1,7 +1,4 @@
 'use client'
-// ResumeContext.tsx dosyası
-// ResumeContext.tsx
-'use client'
 
 import React, { createContext, useContext, useState, useEffect } from 'react'
 
@@ -12,7 +9,6 @@ interface ProfileData {
   address: string
   jobTitle: string
 }
-
 interface EducationData {
   schoolName: string
   degree: string
@@ -21,11 +17,14 @@ interface EducationData {
 interface SkilsData {
   skill: string
 }
-
+interface SummaryData {
+  about: string
+}
 interface ResumeData {
   profile: ProfileData
   education: EducationData
   skills: SkilsData
+  summary: SummaryData
 }
 
 interface ResumeContextType {
@@ -51,7 +50,10 @@ export const ResumeProvider: React.FC = ({ children }: any) => {
     },
     skills: {
       skill: ''
-    }
+    },
+    summary: {
+      about: 'a',
+    },
   }
 
   const [resumeData, setResumeData] = useState<ResumeData>(initialResumeData)
