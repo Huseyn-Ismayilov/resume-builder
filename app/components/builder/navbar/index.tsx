@@ -1,6 +1,7 @@
+'use client'
 import Image from 'next/image'
 import profilePic from '/public/avatar.jpeg'
-import PdfExportButton from '../../PDFexport/button'
+import ExportPDFButton from '../../PDFexport/button'
 import { Button } from '@nextui-org/button'
 
 const Navbar = () => {
@@ -21,7 +22,7 @@ const Navbar = () => {
         >
           Download
         </Button>
-        <PdfExportButton />
+        <ExportPDFButton contentId='pdf-content' />
       </div>
     </div>
   )

@@ -1,45 +1,17 @@
-'use client';
+// components/ExportPDFButton.js
 import React from 'react';
-import { Button } from '@nextui-org/button';
+import { usePDFContext } from '@/app/context/PdfContext';
 
-interface Props {
-  className?: string;
-}
+const ExportPDFButton = () => {
+  const { exportToPDF } = usePDFContext();
 
-const PdfExportButton: React.FC<Props> = ({ className }) => {
-  const handleExportPDF = async () => {
-    try {
-      const response = await fetch('/api/generate-pdf');
-      if (!response.ok) {
-        throw new Error('Failed to generate PDF');
-      }
-
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'export.pdf';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    } catch (error) {
-      console.error('Failed to download PDF:', error);
-      alert('Failed to download PDF. Please try again later.');
-    }
+  const handleExportToPDF = () => {
+    exportToPDF('pdf-content'); // 'pdf-content' burada belirli bir ID olarak kullanılacak
   };
 
   return (
-    <div>
-      <Button
-        onClick={handleExportPDF}
-        color="primary"
-        variant="shadow"
-        className={`font-medium rounded-md text-white ${className}`}
-      >
-        Download as PDF
-      </Button>
-    </div>
+    <button onClick={handleExportToPDF}>PDF Olarak Kaydet</button>
   );
 };
 
-export default PdfExportButton;
+export default ExportPDFButton;

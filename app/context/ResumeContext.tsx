@@ -52,8 +52,8 @@ export const ResumeProvider: React.FC = ({ children }: any) => {
       skill: ''
     },
     summary: {
-      about: 'a',
-    },
+      about: 'a'
+    }
   }
 
   const [resumeData, setResumeData] = useState<ResumeData>(initialResumeData)

@@ -7,7 +7,10 @@ const ProfessionalResume = () => {
     return <div>Resume Data Loading...</div>
   }
   return (
-    <div className='resume aspect-[1/1.41] scale-75 origin-top pb-10 bg-white' id='export-content'>
+    <div
+      className='resume aspect-[1/1.41] scale-75 origin-top pb-10 bg-white'
+      id='export-content'
+    >
       <div className='p-6 pb-0'>
         <div className='px-10 bg-blue-800 rounded-2xl text-white py-12'>
           <h1 className='text-5xl font-bold mb-4'>

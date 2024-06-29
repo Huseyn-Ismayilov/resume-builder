@@ -5,6 +5,7 @@ import React from 'react';
 import { useResume } from '@/app/context/ResumeContext';
 import FormItem from '../FormItem';
 import RichTextArea from '../RichText';
+import { log } from 'console';
 
 const ProfileForm = () => {
   const { resumeData, updateResumeData } = useResume();
@@ -14,7 +15,8 @@ const ProfileForm = () => {
     const updatedProfile = { ...resumeData.profile, [name]: value };
     updateResumeData({ profile: updatedProfile });
   };
-
+  console.log(resumeData.profile);
+  
   return (
     <form className='sw-full mb-10'>
       <div className='mb-4'>

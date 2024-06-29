@@ -12,7 +12,7 @@ const EducationForm = () => {
     const updatedEducation = { ...resumeData.education, [name]: value };
     updateResumeData({ education: updatedEducation });
   };
-  
+  console.log(resumeData.education);
   return (
     <form className='block w-full'>
       <FormItem
