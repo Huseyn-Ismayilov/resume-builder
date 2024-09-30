@@ -1,8 +1,8 @@
 // import { useResume } from '@/context/ResumeContext'
 // import { usePrintContext } from '@/context/PdfRefContext'
 
-import { useResume } from '../../context/ResumeContext' 
-import { usePrintContext } from '../../context/PdfRefContext' 
+import { useResume } from '../../context/ResumeContext'
+import { usePrintContext } from '../../context/PdfRefContext'
 
 const ProfessionalResume = () => {
   const { resumeData } = useResume()
@@ -31,9 +31,9 @@ const ProfessionalResume = () => {
               {resumeData.profile.email && (
                 <div className='w-full'>
                   <div className='text-xl font-medium'>
-                    <span className='text-black/30'>Email </span>
+                    <span className='text-black/30'>Email</span>
                     <br />
-                    <span>{resumeData.profile.email}</span>
+                    <a href={`mailto:${resumeData.profile.email}`} target='_blank'>{resumeData.profile.email}</a>
                   </div>
                 </div>
               )}
@@ -82,6 +82,28 @@ const ProfessionalResume = () => {
                     </div>
                     <span className='block px-5 py-2 bg-black/5 text-lg font-semibold rounded-full'>
                       {education.graduationYear}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+          {resumeData.experience[0].JobName && (
+            <div>
+              <h3 className='text-3xl font-bold mb-7'>Experience</h3>
+              {resumeData.experience.map((experience, index) => (
+                <div key={index}>
+                  <div className='flex items-center justify-between max-w-3xl mb-10'>
+                    <div>
+                      <h2 className='text-2xl font-semibold mb-1'>
+                        {experience.JobName}
+                      </h2>
+                      <h3 className='text-xl font-semibold opacity-40'>
+                        {experience.Company}
+                      </h3>
+                    </div>
+                    <span className='block px-5 py-2 bg-black/5 text-lg font-semibold rounded-full'>
+                      {experience.Year}
                     </span>
                   </div>
                 </div>
