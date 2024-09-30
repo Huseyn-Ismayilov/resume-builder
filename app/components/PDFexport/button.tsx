@@ -6,7 +6,7 @@ const PrintButton: React.FC = () => {
   const { ref } = usePrintContext()
 
   const handlePrint = useReactToPrint({
-    content: () => ref.current,
+    content: () => (ref?.current),
     // scale: 1,
     documentTitle: 'Resume',
   })
