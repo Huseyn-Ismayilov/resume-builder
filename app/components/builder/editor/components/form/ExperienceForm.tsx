@@ -3,48 +3,50 @@ import { Button } from '@nextui-org/button'
 import React, { useState } from 'react'
 import { useResume } from '@/app/context/ResumeContext'
 import FormItem from '../FormItem'
+import { log } from 'console'
 
-const EducationForm = () => {
+const experienceForm = () => {
   const { resumeData, updateResumeData } = useResume()
-  const [educationList, setEducationList] = useState(
-    Array.isArray(resumeData.education) ? resumeData.education : []
+  
+  const [experienceList, setexperienceList] = useState(
+    Array.isArray(resumeData.experience) ? resumeData.experience : []
   )
-
+  console.log(experienceList);
   const handleChange = (index, e) => {
     const { name, value } = e.target
-    const updatedEducationList = educationList.map((education, i) =>
-      i === index ? { ...education, [name]: value } : education
+    const updatedexperienceList = experienceList.map((experience, i) =>
+      i === index ? { ...experience, [name]: value } : experience
     )
-    setEducationList(updatedEducationList)
-    updateResumeData({ education: updatedEducationList })
+    setexperienceList(updatedexperienceList)
+    updateResumeData({ experience: updatedexperienceList })
   }
 
-  const addEducation = () => {
-    if (educationList.length < 4) {
-      setEducationList([
-        ...educationList,
-        { schoolName: '', degree: '', graduationYear: '' }
+  const addexperience = () => {
+    if (experienceList.length < 4) {
+      setexperienceList([
+        ...experienceList,
+        { JobName: '', Company: '', Year: '' }
       ])
     }
   }
 
-  const removeEducation = index => {
-    const updatedEducationList = educationList.filter((_, i) => i !== index)
-    setEducationList(updatedEducationList)
-    updateResumeData({ education: updatedEducationList })
+  const removeexperience = index => {
+    const updatedexperienceList = experienceList.filter((_, i) => i !== index)
+    setexperienceList(updatedexperienceList)
+    updateResumeData({ experience: updatedexperienceList })
   }
 
   return (
     <form className='block w-full'>
-      {educationList.map((education, index) => (
+      {experienceList.map((experience, index) => (
         <div key={index} className='mb-7 relative'>
           <div className='flex items-center justify-between mb-4'>
-            <h4 className='font-semibold'>{`Education ${index + 1}`}</h4>
+            <h4 className='font-semibold'>{`Experience ${index + 1}`}</h4>
 
             {index !== 0 && (
               <button
                 type='button'
-                onClick={() => removeEducation(index)}
+                onClick={() => removeexperience(index)}
                 className='hover:scale-110 transition-all'
               >
                 <svg
@@ -58,44 +60,31 @@ const EducationForm = () => {
                     fill='#D63F3F'
                   />
                 </svg>
-                {/* <svg
-                  viewBox='0 0 24 24'
-                  width='24'
-                  stroke='red'
-                  stroke-width='2'
-                  fill='none'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                >
-                  <circle cx='12' cy='12' r='10'></circle>
-                  <line x1='15' y1='9' x2='9' y2='15'></line>
-                  <line x1='9' y1='9' x2='15' y2='15'></line>
-                </svg> */}
               </button>
             )}
           </div>
 
           <FormItem
-            label='School name'
+            label='Job name'
             type='text'
-            name='schoolName'
-            value={education.schoolName}
+            name='JobName'
+            value={experience.JobName}
             onChange={e => handleChange(index, e)}
             placeholder='School Name'
           />
           <FormItem
             label='Degree'
             type='text'
-            name='degree'
-            value={education.degree}
+            name='Company'
+            value={experience.Company}
             onChange={e => handleChange(index, e)}
             placeholder='Degree'
           />
           <FormItem
             label='Graduation year'
             type='text'
-            name='graduationYear'
-            value={education.graduationYear}
+            name='Year'
+            value={experience.Year}
             onChange={e => handleChange(index, e)}
             placeholder='Graduation Year'
           />
@@ -106,9 +95,9 @@ const EducationForm = () => {
         color='primary'
         variant='shadow'
         className='flex items-center gap-2 w-full font-semibold rounded-md text-white dark:text-black dark:bg-white !transition-all'
-        onClick={addEducation}
+        onClick={addexperience}
       >
-        Add Education
+        Add Experience
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='20'
@@ -128,4 +117,4 @@ const EducationForm = () => {
   )
 }
 
-export default EducationForm
+export default experienceForm

@@ -16,11 +16,17 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
       },
       maxWidth: {
-        '1/3': '33.3333%',
+        '1/3': '33.3333%'
+      },
+      fontFamily: {
+        display: " '__Inter_aaf875', '__Inter_Fallback_aaf875'"
+      },
+      colors: {
+        main: '#ebebeb'
       }
     }
   },
-  darkMode: 'class',
+  darkMode: ['selector', '[theme-mode="dark"]'],
   plugins: [
     nextui({
       themes: {
@@ -32,7 +38,7 @@ const config: Config = {
               foreground: 'black'
             }
           }
-        },
+        }
       }
     })
   ]

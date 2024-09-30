@@ -1,17 +1,26 @@
-// components/ExportPDFButton.js
-import React from 'react';
-import { usePDFContext } from '@/app/context/PdfContext';
+import { Button } from '@nextui-org/button'
+import { useReactToPrint } from 'react-to-print'
+import { usePrintContext } from '@/app/context/PdfRefContext'
 
-const ExportPDFButton = () => {
-  const { exportToPDF } = usePDFContext();
+const PrintButton: React.FC = () => {
+  const { ref } = usePrintContext()
 
-  const handleExportToPDF = () => {
-    exportToPDF('pdf-content'); // 'pdf-content' burada belirli bir ID olarak kullanılacak
-  };
+  const handlePrint = useReactToPrint({
+    content: () => ref.current,
+    // scale: 1,
+    documentTitle: 'Resume',
+  })
 
   return (
-    <button onClick={handleExportToPDF}>PDF Olarak Kaydet</button>
-  );
-};
+    <Button
+      color='primary'
+      variant='shadow'
+      className='font-semibold rounded-md text-white dark:text-black dark:bg-white'
+      onClick={handlePrint}
+    >
+      Download
+    </Button>
+  )
+}
 
-export default ExportPDFButton;
+export default PrintButton

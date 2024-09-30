@@ -15,13 +15,12 @@ const ProfileForm = () => {
     const updatedProfile = { ...resumeData.profile, [name]: value };
     updateResumeData({ profile: updatedProfile });
   };
-  console.log(resumeData.profile);
   
   return (
     <form className='sw-full mb-10'>
       <div className='mb-4'>
         <FormItem
-          label='Full Name'
+          label='Full name'
           type='text'
           name='fullName'
           value={resumeData.profile.fullName}
@@ -31,7 +30,7 @@ const ProfileForm = () => {
       </div>
       <div className='mb-4'>
         <FormItem
-          label='Job Title'
+          label='Job title'
           type='text'
           name='jobTitle'
           value={resumeData.profile.jobTitle}

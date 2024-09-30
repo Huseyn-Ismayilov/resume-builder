@@ -2,6 +2,7 @@ import Tabs from './components/tabs'
 import ProfileForm from './components/form/ProfileForm'
 import EducationForm from './components/form/EducationForm'
 import SummaryForm from './components/form/SummaryForm'
+import ExperinceForm from './components/form/ExperienceForm'
 
 const Editor = () => {
   return (
@@ -16,7 +17,7 @@ const Editor = () => {
         <EducationForm />
       </div>
       <div key='tab4' title='Experience'>
-        <h2>Tab 3 Content</h2>
+        <ExperinceForm />
       </div>
       <div key='tab5' title='Skills'>
         <h2>Tab 4 Content</h2>

@@ -16,14 +16,14 @@ const Tabs: React.FC<{ children: ReactNode }> = ({ children }) => {
   }
 
   return (
-    <div className='h-full inline-flex bg-white'>
-      <div className='h-full w-60 border-r border-black/20'>
+    <div className='h-full inline-flex bg-white dark:bg-black/90'>
+      <div className='h-full w-60 border-r border-black/20 bg-gray-600/5'>
         {React.Children.map(children, (child, index) => {
           if (React.isValidElement(child)) {
             const tabProps = child.props as TabProps
             return (
               <button
-                className={`flex items-center justify-between text-sm font-medium tracking-tight w-full p-5 border-b border-black/20   ${index === activeTab ? 'bg-gray-100 hover:bg-gray-200': 'hover:bg-gray-50'}`}
+                className={`flex items-center justify-between text-sm font-medium tracking-tight w-full p-5 border-b border-black/20 dark:text-white ${index === activeTab ? 'bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/15': 'hover:bg-gray-50 dark:bg-gray-600/10 dark:hover:bg-gray-600/20'}`}
                 onClick={e => {
                   e.preventDefault()
                   handleTabClick(index)
@@ -40,7 +40,7 @@ const Tabs: React.FC<{ children: ReactNode }> = ({ children }) => {
                     >
                       <path
                         d='M2 2H26'
-                        stroke='black'
+                        stroke='currentColor'
                         strokeWidth='3'
                         strokeLinecap='round'
                         strokeLinejoin='round'
@@ -55,7 +55,7 @@ const Tabs: React.FC<{ children: ReactNode }> = ({ children }) => {
                     >
                       <path
                         d='M2 14H26M14 2V26'
-                        stroke='black'
+                        stroke='currentColor'
                         strokeWidth='3'
                         strokeLinecap='round'
                         strokeLinejoin='round'
@@ -70,7 +70,7 @@ const Tabs: React.FC<{ children: ReactNode }> = ({ children }) => {
         })}
       </div>
 
-      <div className='h-full p-5 w-72 border-r border-black/20'>
+      <div className='h-full p-5 w-72 border-r border-black/20 overflow-y-auto'>
         {React.Children.toArray(children)[activeTab]}
       </div>
     </div>

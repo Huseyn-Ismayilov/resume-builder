@@ -1,8 +1,10 @@
-import BuilderLayout from "../components/builder"
+import BuilderLayout from '../components/builder'
 
 const Builder = () => {
   return (
-      <BuilderLayout/>
+    <>
+      <BuilderLayout />
+    </>
   )
 }
 

@@ -17,7 +17,7 @@ const FormItem: React.FC<InputWithLabelProps> = ({
 }) => {
   return (
     <div className='mb-4'>
-      <label htmlFor={name} className='block mb-1 text-xs font-medium'>
+      <label htmlFor={name} className='block mb-1 text-xs font-medium dark:text-white'>
         {label}
       </label>
       <input

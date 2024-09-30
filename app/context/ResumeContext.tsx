@@ -14,6 +14,11 @@ interface EducationData {
   degree: string
   graduationYear: string
 }
+interface ExperienceData {
+  JobName: string
+  Company: string
+  Year: string
+}
 interface SkilsData {
   skill: string
 }
@@ -22,7 +27,8 @@ interface SummaryData {
 }
 interface ResumeData {
   profile: ProfileData
-  education: EducationData
+  education: EducationData[]
+  experience: ExperienceData[]
   skills: SkilsData
   summary: SummaryData
 }
@@ -43,16 +49,25 @@ export const ResumeProvider: React.FC = ({ children }: any) => {
       address: '',
       jobTitle: ''
     },
-    education: {
-      schoolName: '',
-      degree: '',
-      graduationYear: ''
-    },
+    education: [
+      {
+        schoolName: '',
+        degree: '',
+        graduationYear: ''
+      }
+    ],
+    experience: [
+      {
+        JobName: '',
+        Company: '',
+        Year: ''
+      }
+    ],
     skills: {
       skill: ''
     },
     summary: {
-      about: 'a'
+      about: ''
     }
   }
 
