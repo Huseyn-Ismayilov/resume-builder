@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useState, useEffect } from 'react'
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
 interface ProfileData {
   fullName: string
@@ -40,7 +40,11 @@ interface ResumeContextType {
 
 const ResumeContext = createContext<ResumeContextType | undefined>(undefined)
 
-export const ResumeProvider: React.FC = ({ children }: any) => {
+
+interface ResumeProviderProps {
+  children: ReactNode;
+}
+export const ResumeProvider: React.FC<ResumeProviderProps> = ({ children }: any) => {
   const initialResumeData: ResumeData = {
     profile: {
       fullName: '',

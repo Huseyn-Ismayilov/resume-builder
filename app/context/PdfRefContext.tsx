@@ -1,8 +1,13 @@
-import React, { createContext, useContext, useRef } from 'react';
+import React, { createContext, ReactNode, useContext, useRef } from 'react';
 
 const PrintContext = createContext<{ ref: React.RefObject<HTMLDivElement> | null }>({ ref: null });
 
-export const PrintProvider: React.FC = ({ children }:any) => {
+
+interface PrintProviderProps {
+  children: ReactNode;
+}
+
+export const PrintProvider: React.FC<PrintProviderProps> = ({ children }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   return (
