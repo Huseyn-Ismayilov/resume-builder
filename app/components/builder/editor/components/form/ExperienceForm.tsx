@@ -10,7 +10,7 @@ const experienceForm = () => {
   const [experienceList, setexperienceList] = useState(
     Array.isArray(resumeData.experience) ? resumeData.experience : []
   )
-  const handleChange = (index, e) => {
+  const handleChange = (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     const updatedexperienceList = experienceList.map((experience, i) =>
       i === index ? { ...experience, [name]: value } : experience
@@ -28,7 +28,7 @@ const experienceForm = () => {
     }
   }
 
-  const removeexperience = index => {
+  const removeexperience = (index:number) => {
     const updatedexperienceList = experienceList.filter((_, i) => i !== index)
     setexperienceList(updatedexperienceList)
     updateResumeData({ experience: updatedexperienceList })

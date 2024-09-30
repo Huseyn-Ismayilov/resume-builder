@@ -3,6 +3,7 @@
 
 import { useResume } from '../../context/ResumeContext' 
 import { usePrintContext } from '../../context/PdfRefContext' 
+
 const ProfessionalResume = () => {
   const { resumeData } = useResume()
   const { ref } = usePrintContext()

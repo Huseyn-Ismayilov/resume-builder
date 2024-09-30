@@ -10,7 +10,7 @@ const EducationForm = () => {
     Array.isArray(resumeData.education) ? resumeData.education : []
   )
 
-  const handleChange = (index, e) => {
+  const handleChange = (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     const updatedEducationList = educationList.map((education, i) =>
       i === index ? { ...education, [name]: value } : education
@@ -28,7 +28,7 @@ const EducationForm = () => {
     }
   }
 
-  const removeEducation = index => {
+  const removeEducation = (index:number) => {
     const updatedEducationList = educationList.filter((_, i) => i !== index)
     setEducationList(updatedEducationList)
     updateResumeData({ education: updatedEducationList })
