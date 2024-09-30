@@ -1,7 +1,7 @@
 'use client'
 import { Button } from '@nextui-org/button'
 import React, { useState } from 'react'
-import { useResume } from '../../../../../context/ResumeContext' 
+import { useResume } from '../../../../../context/ResumeContext'
 import FormItem from '../FormItem'
 
 const EducationForm = () => {
@@ -10,7 +10,11 @@ const EducationForm = () => {
     Array.isArray(resumeData.education) ? resumeData.education : []
   )
 
-  const handleChange = (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
+
+  const handleChange = (
+    index: number,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const { name, value } = e.target
     const updatedEducationList = educationList.map((education, i) =>
       i === index ? { ...education, [name]: value } : education
@@ -27,13 +31,11 @@ const EducationForm = () => {
       ])
     }
   }
-
-  const removeEducation = (index:number) => {
-    const updatedEducationList = educationList.filter((_, i) => i !== index)
-    setEducationList(updatedEducationList)
-    updateResumeData({ education: updatedEducationList })
-  }
-
+  const removeEducation = (index: number) => {
+    const updatedEducationList = educationList.filter((_, i) => i !== index);
+    setEducationList(updatedEducationList);
+    updateResumeData({ education: updatedEducationList });
+}
   return (
     <form className='block w-full'>
       {educationList.map((education, index) => (
