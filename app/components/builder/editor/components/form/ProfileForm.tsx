@@ -1,11 +1,9 @@
-// ProfileForm.tsx
 'use client'
 
 import React from 'react';
-import { useResume } from '@/app/context/ResumeContext';
+import { useResume } from '../../../../../context/ResumeContext' 
 import FormItem from '../FormItem';
 import RichTextArea from '../RichText';
-import { log } from 'console';
 
 const ProfileForm = () => {
   const { resumeData, updateResumeData } = useResume();

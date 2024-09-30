@@ -1,9 +1,8 @@
 'use client'
 import { Button } from '@nextui-org/button'
 import React, { useState } from 'react'
-import { useResume } from '@/app/context/ResumeContext'
+import { useResume } from '../../../../../context/ResumeContext' 
 import FormItem from '../FormItem'
-import { log } from 'console'
 
 const experienceForm = () => {
   const { resumeData, updateResumeData } = useResume()
@@ -11,7 +10,6 @@ const experienceForm = () => {
   const [experienceList, setexperienceList] = useState(
     Array.isArray(resumeData.experience) ? resumeData.experience : []
   )
-  console.log(experienceList)
   const handleChange = (index, e) => {
     const { name, value } = e.target
     const updatedexperienceList = experienceList.map((experience, i) =>

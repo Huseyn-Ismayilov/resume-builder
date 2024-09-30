@@ -1,7 +1,7 @@
 'use client'
 // EducationForm.tsx
 import React, { useState, useEffect } from 'react';
-import { useResume } from '@/app/context/ResumeContext';
+import { useResume } from '../../../../../context/ResumeContext' 
 import RichTextArea from '../RichText';
 const SummaryForm = () => {
   const { resumeData, updateResumeData } = useResume();

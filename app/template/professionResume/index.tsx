@@ -1,6 +1,8 @@
-import { useResume } from '@/app/context/ResumeContext'
-import { usePrintContext } from '@/app/context/PdfRefContext'
+// import { useResume } from '@/context/ResumeContext'
+// import { usePrintContext } from '@/context/PdfRefContext'
 
+import { useResume } from '../../context/ResumeContext' 
+import { usePrintContext } from '../../context/PdfRefContext' 
 const ProfessionalResume = () => {
   const { resumeData } = useResume()
   const { ref } = usePrintContext()

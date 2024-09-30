@@ -1,8 +1,7 @@
 'use client'
 import Image from 'next/image'
 import profilePic from '/public/avatar.jpeg'
-import { Button } from '@nextui-org/button'
-import PrintButton from '../../pdfExport/button'
+import PrintButton from '../../pdfExport/PrintButton'
 import Link from 'next/link'
 
 const Navbar = () => {
@@ -21,13 +20,6 @@ const Navbar = () => {
         </div>
       </div>
       <div className='flex items-center gap-4'>
-        {/* <Button
-          color='primary'
-          variant='bordered'
-          className='font-semibold rounded-md'
-        >
-          Download
-        </Button> */}
         <PrintButton />
       </div>
     </div>

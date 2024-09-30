@@ -1,7 +1,7 @@
 'use client'
 import { Button } from '@nextui-org/button'
 import React, { useState } from 'react'
-import { useResume } from '@/app/context/ResumeContext'
+import { useResume } from '../../../../../context/ResumeContext' 
 import FormItem from '../FormItem'
 
 const EducationForm = () => {

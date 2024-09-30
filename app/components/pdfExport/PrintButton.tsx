@@ -1,6 +1,6 @@
 import { Button } from '@nextui-org/button'
 import { useReactToPrint } from 'react-to-print'
-import { usePrintContext } from '@/app/context/PdfRefContext'
+import { usePrintContext } from '../../context/PdfRefContext' 
 
 const PrintButton: React.FC = () => {
   const { ref } = usePrintContext()
