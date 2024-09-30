@@ -16,10 +16,12 @@ const FormItem: React.FC<InputWithLabelProps> = ({
   placeholder
 }) => {
   return (
-    <div className='mb-4'>
-      <label htmlFor={name} className='block mb-1 text-xs font-medium dark:text-white'>
+    <div className='mb-4 w-full'>
+      {label && 
+        <label htmlFor={name} className='block mb-1 text-xs font-medium dark:text-white'>
         {label}
       </label>
+      }
       <input
         type={type}
         name={name}

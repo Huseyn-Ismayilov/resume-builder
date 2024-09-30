@@ -1,7 +1,7 @@
 'use client'
 import { Button } from '@nextui-org/button'
 import React, { useState } from 'react'
-import { useResume } from '../../../../../context/ResumeContext' 
+import { useResume } from '../../../../../context/ResumeContext'
 import FormItem from '../FormItem'
 
 const experienceForm = () => {
@@ -10,7 +10,10 @@ const experienceForm = () => {
   const [experienceList, setexperienceList] = useState(
     Array.isArray(resumeData.experience) ? resumeData.experience : []
   )
-  const handleChange = (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    index: number,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const { name, value } = e.target
     const updatedexperienceList = experienceList.map((experience, i) =>
       i === index ? { ...experience, [name]: value } : experience
@@ -28,7 +31,7 @@ const experienceForm = () => {
     }
   }
 
-  const removeexperience = (index:number) => {
+  const removeexperience = (index: number) => {
     const updatedexperienceList = experienceList.filter((_, i) => i !== index)
     setexperienceList(updatedexperienceList)
     updateResumeData({ experience: updatedexperienceList })
@@ -106,9 +109,9 @@ const experienceForm = () => {
           <path
             d='M4 12H20M12 4V20'
             stroke='currentColor'
-            stroke-width='2'
-            stroke-linecap='round'
-            stroke-linejoin='round'
+            strokeWidth='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
           />
         </svg>
       </Button>

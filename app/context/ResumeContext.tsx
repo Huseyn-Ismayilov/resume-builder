@@ -29,7 +29,7 @@ interface ResumeData {
   profile: ProfileData
   education: EducationData[]
   experience: ExperienceData[]
-  skills: SkilsData
+  skills: SkilsData[]
   summary: SummaryData
 }
 
