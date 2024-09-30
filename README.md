@@ -1,5 +1,7 @@
 # Resume Builder
 
+![Resume Builder Screenshot](./screenshots/Untitled.png)
+
 ## Project Description
 
 This project is a resume builder web application where users can create and preview their resumes (CVs). Users can add education details, work experiences, and other relevant information, and view their data in a formatted template.
