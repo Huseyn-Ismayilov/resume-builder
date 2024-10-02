@@ -3,41 +3,44 @@ import React, { useState } from 'react'
 import { useResume } from '../../../../../context/ResumeContext'
 import FormItem from '../FormItem'
 
-const EducationForm = () => {
+const CertificateForm = () => {
   const { resumeData, updateResumeData } = useResume()
-  const [educationList, setEducationList] = useState(
-    Array.isArray(resumeData.education) ? resumeData.education : []
+  const [certificateList, setCertificateList] = useState(
+    Array.isArray(resumeData.certificates) ? resumeData.certificates : []
   )
-  console.log(resumeData.education)
 
+  console.log(resumeData);
+  
   const handleChange = (
     index: number,
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = e.target
-    const updatedEducationList = educationList.map((education, i) =>
-      i === index ? { ...education, [name]: value } : education
+    const updatedCertificateList = certificateList.map((certificates, i) =>
+      i === index ? { ...certificates, [name]: value } : certificates
     )
-    setEducationList(updatedEducationList)
-    updateResumeData({ education: updatedEducationList })
+    setCertificateList(updatedCertificateList)
+    updateResumeData({ certificates: updatedCertificateList })
   }
 
-  const addEducation = () => {
-    if (educationList.length < 4) {
-      setEducationList([
-        ...educationList,
-        { schoolName: '', degree: '', graduationYear: '' }
+  const addCertificate = () => {
+    if (certificateList.length < 4) {
+      setCertificateList([
+        ...certificateList,
+        { Title: '', Company: '', Year: '' }
       ])
     }
   }
-  const removeEducation = (index: number) => {
-    const updatedEducationList = educationList.filter((_, i) => i !== index)
-    setEducationList(updatedEducationList)
-    updateResumeData({ education: updatedEducationList })
+
+  const removeCertificate = (index: number) => {
+    const updatedCertificateList = certificateList.filter((_, i) => i !== index)
+    setCertificateList(updatedCertificateList)
+    updateResumeData({ certificates: updatedCertificateList })
   }
+
   return (
     <form className='block w-full'>
-      {educationList.map((education, index) => (
+      {certificateList.map((certificate, index) => (
         <div key={index} className='mb-7 relative'>
           {index !== 0 && (
             <div className='flex items-center justify-between mb-4'>
@@ -45,7 +48,7 @@ const EducationForm = () => {
               {index !== 0 && (
                 <button
                   type='button'
-                  onClick={() => removeEducation(index)}
+                  onClick={() => removeCertificate(index)}
                   className='hover:scale-110 transition-all'
                 >
                   <svg
@@ -65,38 +68,37 @@ const EducationForm = () => {
           )}
 
           <FormItem
-            label='School name'
+            label='Job title'
             type='text'
-            name='schoolName'
-            value={education.schoolName}
+            name='Title'
+            value={certificate.Title}
             onChange={e => handleChange(index, e)}
-            placeholder='School Name'
+            placeholder='Job title'
           />
           <FormItem
-            label='Degree'
+            label='Company'
             type='text'
-            name='degree'
-            value={education.degree}
+            name='Company'
+            value={certificate.Company}
             onChange={e => handleChange(index, e)}
-            placeholder='Degree'
+            placeholder='Company'
           />
           <FormItem
-            label='Graduation year'
+            label='Year'
             type='text'
-            name='graduationYear'
-            value={education.graduationYear}
+            name='Year'
+            value={certificate.Year}
             onChange={e => handleChange(index, e)}
-            placeholder='Graduation Year'
+            placeholder='Year'
           />
         </div>
       ))}
-
       <button
         className='text-sm flex items-center gap-2 font-semibold text-center text-black transition-all group'
-        onClick={addEducation}
+        onClick={addCertificate}
         type='button'
       >
-        <div className='flex items-center justify-center size-6 rounded-full bg-black text-white group-hover:scale-110 group-active:scale-90 transition-all'>
+         <div className='flex items-center justify-center size-6 rounded-full bg-black text-white group-hover:scale-110 group-active:scale-90 transition-all'>
           <svg
             width='13'
             viewBox='0 0 20 20'
@@ -112,10 +114,10 @@ const EducationForm = () => {
             />
           </svg>
         </div>
-        Add Education
+        Add Certificate
       </button>
     </form>
   )
 }
 
-export default EducationForm
+export default CertificateForm

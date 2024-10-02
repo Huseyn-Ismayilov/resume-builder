@@ -18,8 +18,14 @@ interface ExperienceData {
   JobName: string
   Company: string
   Year: string
+  accomplishments: string[]
 }
-interface SkilsData {
+interface CertificatesData {
+  Title: string
+  Company: string
+  Year: string
+}
+interface SkillsData {
   skill: string
 }
 interface SummaryData {
@@ -29,8 +35,9 @@ interface ResumeData {
   profile: ProfileData
   education: EducationData[]
   experience: ExperienceData[]
-  skills: SkilsData[]
+  skills: SkillsData[]
   summary: SummaryData
+  certificates: CertificatesData[]
 }
 
 interface ResumeContextType {
@@ -64,15 +71,21 @@ export const ResumeProvider: React.FC<ResumeProviderProps> = ({ children }: any)
       {
         JobName: '',
         Company: '',
+        Year: '',
+        accomplishments: ['']
+      }
+    ],
+    skills: [],
+    summary: {
+      about: ''
+    },
+    certificates: [
+      {
+        Title: '',
+        Company: '',
         Year: ''
       }
     ],
-    skills: {
-      skill: ''
-    },
-    summary: {
-      about: ''
-    }
   }
 
   const [resumeData, setResumeData] = useState<ResumeData>(initialResumeData)

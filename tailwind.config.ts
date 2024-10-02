@@ -19,7 +19,8 @@ const config: Config = {
         '1/3': '33.3333%'
       },
       fontFamily: {
-        display: " '__Inter_aaf875', '__Inter_Fallback_aaf875'"
+        display: " '__Inter_aaf875', '__Inter_Fallback_aaf875'",
+        general: "'GeneralSans'"
       },
       colors: {
         main: '#ebebeb'

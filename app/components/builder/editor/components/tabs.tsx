@@ -17,13 +17,13 @@ const Tabs: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <div className='h-full inline-flex bg-white dark:bg-black/90'>
-      <div className='h-full w-60 border-r border-black/20 bg-gray-600/5'>
+      <div className='h-full w-60 border-r border-black/20'>
         {React.Children.map(children, (child, index) => {
           if (React.isValidElement(child)) {
             const tabProps = child.props as TabProps
             return (
               <button
-                className={`flex items-center justify-between text-sm font-medium tracking-tight w-full p-5 border-b border-black/20 dark:text-white ${index === activeTab ? 'bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/15': 'hover:bg-gray-50 dark:bg-gray-600/10 dark:hover:bg-gray-600/20'}`}
+                className={`flex items-center justify-between text-sm font-semibold tracking-tight w-full p-5 border-b border-black/20 dark:text-white ${index === activeTab ? 'bg-gray-100 hover:bg-gray-200/60': 'hover:bg-gray-100/40'}`}
                 onClick={e => {
                   e.preventDefault()
                   handleTabClick(index)

@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react'
 import { useResume } from '../../../../../context/ResumeContext'
 import FormItem from '../FormItem'
-import { Button } from '@nextui-org/button'
 
 const SkillsForm = () => {
   const { resumeData, updateResumeData } = useResume()
@@ -10,7 +9,7 @@ const SkillsForm = () => {
   const [skillsList, setSkillsList] = useState(
     Array.isArray(resumeData.skills) && resumeData.skills.length > 0
       ? resumeData.skills
-      : [{ skill: '' }, { skill: '' }] // Varsayılan iki boş giriş
+      : [{ skill: '' }, { skill: '' }] 
   )
   const handleChange = (
     index: number,
@@ -25,7 +24,7 @@ const SkillsForm = () => {
   }
 
   const addSkill = () => {
-      setSkillsList([...skillsList, { skill: '' }, { skill: '' }])
+    setSkillsList([...skillsList, { skill: '' }, { skill: '' }])
   }
 
   const removeSkill = (index: number) => {
@@ -42,8 +41,9 @@ const SkillsForm = () => {
             name='skill'
             value={item.skill}
             onChange={e => handleChange(index, e)}
-            label={index == 0 && 'Skills'}
+            label={index == 0 ? 'Skills' : ''}
             placeholder='Your Skill'
+            type={'input'}
           />
           {index !== 0 && (
             <button
@@ -70,28 +70,29 @@ const SkillsForm = () => {
         </div>
       ))}
 
-      <Button
-        color='primary'
-        variant='shadow'
-        className='flex items-center gap-2 w-full font-semibold rounded-md text-white dark:text-black dark:bg-white !transition-all'
+      <button
+        className='text-sm flex items-center gap-2 font-semibold text-center p-2 text-black transition-all group'
         onClick={addSkill}
+        type='button'
       >
+                <div className='flex items-center justify-center size-6 rounded-full bg-black text-white group-hover:scale-110 group-active:scale-90 transition-all'>
+          <svg
+            width='13'
+            viewBox='0 0 20 20'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              d='M2 10H18M10 2V18'
+              stroke='currentColor'
+              strokeWidth='3.3'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            />
+          </svg>
+        </div>
         Add Skill
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='18'
-          viewBox='0 0 24 24'
-          fill='none'
-        >
-          <path
-            d='M4 12H20M12 4V20'
-            stroke='currentColor'
-            strokeWidth='2'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-          />
-        </svg>
-      </Button>
+      </button>
     </form>
   )
 }

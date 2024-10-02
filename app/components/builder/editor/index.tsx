@@ -4,6 +4,7 @@ import EducationForm from './components/form/EducationForm'
 import SummaryForm from './components/form/SummaryForm'
 import ExperinceForm from './components/form/ExperienceForm'
 import SkillsForm from './components/form/SkillsForm'
+import CertificateForm from './components/form/CertificateForm'
 
 const Editor = () => {
   return (
@@ -14,20 +15,17 @@ const Editor = () => {
       <div key='tab2' title='Professional Summary'>
         <SummaryForm />
       </div>
-      <div key='tab3' title='Education'>
-        <EducationForm />
-      </div>
-      <div key='tab4' title='Experience'>
+      <div key='tab3' title='Experience'>
         <ExperinceForm />
+      </div>
+      <div key='tab4' title='Education'>
+        <EducationForm />
       </div>
       <div key='tab5' title='Skills'>
         <SkillsForm />
       </div>
-      <div key='tab6' title='Profile or Portfolio URL'>
-        <h2>Tab 6 Content</h2>
-      </div>
-      <div key='tab7' title='More Details'>
-        <h2>Tab 7 Content</h2>
+      <div key='tab6' title='Certificates'>
+        <CertificateForm/>
       </div>
     </Tabs>
   )
