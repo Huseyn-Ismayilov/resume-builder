@@ -191,7 +191,7 @@ const ProfessionalResume = () => {
                     <h2 className='text-2xl font-semibold text-black/75 mb-1'>
                       {certificate.Title
                         ? certificate.Title
-                        : '30 Different Web Projects in 30 Days | HTML, CSS & JS'}
+                        : 'Certificate Title'}
                     </h2>
                     <h3 className='text-xl opacity-60'>
                       {certificate.Company ? certificate.Company : 'Udemy'}
